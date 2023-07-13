@@ -1,4 +1,4 @@
-# frozen_literal_strings : true
+# frozen_string_literal : true
 
 require 'nokogiri'
 require 'open-uri'
