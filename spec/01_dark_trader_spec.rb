@@ -1,5 +1,5 @@
 require 'rspec'
-require_relative '../lib/01_crypto.rb'
+require_relative '../lib/01_dark_trader.rb'
 
 RSpec.describe 'Scraping Coin Market Cap' do
   it 'returns an array of hashes' do
@@ -32,4 +32,3 @@ RSpec.describe 'Scraping Coin Market Cap' do
     expect(names).to include('ETH')
   end
 end
-
