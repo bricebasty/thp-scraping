@@ -3,7 +3,7 @@
 require 'nokogiri'
 require 'open-uri'
 
-MAX_RETRIES = 10
+MAX_RETRIES = 3
 RETRY_DELAY = 60
 
 def get_deputy_info(deputy_url)
@@ -25,7 +25,7 @@ def get_deputy_info(deputy_url)
     rescue OpenURI::HTTPError, Net::OpenTimeout => e
       if retries < MAX_RETRIES
         retries += 1
-        puts "Encountered a 504 Gateway Timeout. Retrying attempt #{retries} in #{RETRY_DELAY} seconds..."
+        puts "Encountered a 504 Gateway Timeout. Retrying attempt in #{RETRY_DELAY} seconds..."
         sleep RETRY_DELAY
       else
         puts "Failed to scrape deputy info: #{e}"
