@@ -37,9 +37,7 @@ end
 
 def get_deputy_urls
   deputy_url = Nokogiri::HTML(URI.open("https://www2.assemblee-nationale.fr/deputes/liste/alphabetique"))
-  all_urls = deputy_url.xpath('/html/body/div[1]/div[2]/div/div/section/div/article/div[3]/div/div[3]/div/ul/li/a').map do |e|
-    get_deputy_info(e.attr('href'))
-  end
+  all_urls = deputy_url.xpath('/html/body/div[1]/div[2]/div/div/section/div/article/div[3]/div/div[3]/div/ul/li/a').map { |e| get_deputy_info(e.attr('href')) }
   puts all_urls
 end
 
